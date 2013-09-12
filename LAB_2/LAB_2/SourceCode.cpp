@@ -9,6 +9,14 @@ Matrix Matrix::operator+(Matrix ob1)
 			temp.Array[i][j]=Array[i][j]+ob1.Array[i][j];
 	return temp;
 }
+Matrix Matrix::operator+(double var)
+{
+	Matrix temp;
+	for(int i;i<sizeArray;i++)
+		for(int j=0;j<sizeArray;j++)
+			temp.Array[i][j]=Array[i][j]+var;
+	return temp;
+}
 
 
 

@@ -13,5 +13,6 @@ public:
 	Matrix(int,int);
 	Matrix(const Matrix&);
 	~Matrix();
-	Matrix operator+ (Matrix ob1);
+	Matrix operator+ (Matrix);
+	Matrix operator+ (double);
 };
