@@ -34,8 +34,23 @@ Matrix Matrix::operator-(double var)
 	return temp;
 }
 
-
-
+Matrix Matrix::operator*(Matrix ob1)
+{
+	Matrix temp;
+	for(int i;i<sizeArray;i++)
+		for(int j=0;j<sizeArray;j++)
+			for(int r=0;r<sizeArray;r++)
+				temp.Array[i][j]+=Array[i][r]*ob1.Array[r][j];
+	return temp;
+}
+Matrix Matrix::operator*(double var)
+{
+	Matrix temp;
+	for(int i;i<sizeArray;i++)
+		for(int j=0;j<sizeArray;j++)
+			temp.Array[i][j]*=var;
+	return temp;
+}
 
 
 
