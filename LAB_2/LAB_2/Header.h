@@ -15,4 +15,6 @@ public:
 	~Matrix();
 	Matrix operator+ (Matrix);
 	Matrix operator+ (double);
+	Matrix operator- (Matrix);
+	Matrix operator- (double);
 };

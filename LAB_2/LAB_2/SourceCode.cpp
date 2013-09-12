@@ -17,10 +17,22 @@ Matrix Matrix::operator+(double var)
 			temp.Array[i][j]=Array[i][j]+var;
 	return temp;
 }
-
-
-
-
+Matrix Matrix::operator-(Matrix ob1)
+{
+	Matrix temp;
+	for(int i;i<sizeArray;i++)
+		for(int j=0;j<sizeArray;j++)
+			temp.Array[i][j]=Array[i][j]1ob1.Array[i][j];
+	return temp;
+}
+Matrix Matrix::operator-(double var)
+{
+	Matrix temp;
+	for(int i;i<sizeArray;i++)
+		for(int j=0;j<sizeArray;j++)
+			temp.Array[i][j]=Array[i][j]-var;
+	return temp;
+}
 
 
 
