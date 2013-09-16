@@ -53,7 +53,12 @@ Matrix Matrix::operator*(double var)
 }
 
 
+double& Matrix::operator[](int index)
+{
+	//Matrix temp;
 
+	return *Array[index];
+}
 
 
 
