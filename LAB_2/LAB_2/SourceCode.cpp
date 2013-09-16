@@ -51,12 +51,24 @@ Matrix Matrix::operator*(double var)
 			temp.Array[i][j]*=var;
 	return temp;
 }
-
+Matrix Matrix::operator=(Matrix ob)
+{
+	this->sizeArray=ob.sizeArray;
+	for(int i=0;i<this->sizeArray;i++)
+		for(int j=0;j<this->sizeArray;j++)
+			this->Array[i][j]=ob.Array[i][j];
+	return *this;
+}
+Matrix Matrix::operator=(double var)
+{
+	for(int i=0;i<this->sizeArray;i++)
+		for(int j=0;j<this->sizeArray;j++)
+			this->Array[i][j]=var;
+	return *this;
+}
 
 double& Matrix::operator[](int index)
 {
-	//Matrix temp;
-
 	return *Array[index];
 }
 

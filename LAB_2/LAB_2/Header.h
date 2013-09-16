@@ -20,6 +20,7 @@ public:
 	Matrix operator* (Matrix);
 	Matrix operator* (double);
 	double& operator[](int);
-
+	Matrix operator= (Matrix);
+	Matrix operator= (double);S
 
 };
