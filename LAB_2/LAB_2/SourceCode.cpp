@@ -22,6 +22,12 @@ Matrix::Matrix(int length,int hight)
 	for(int i=0; i<lengthArray;i++)
 		Array[i]=new double [hightArray];
 }
+Matrix::~Matrix(void)
+{
+	for(int i=0; i<lengthArray;i++)
+		delete [] Array[i];
+	delete [] Array;
+}
 
 
 Matrix Matrix::operator+(Matrix& ob1)
