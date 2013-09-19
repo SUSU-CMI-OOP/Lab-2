@@ -124,9 +124,13 @@ Matrix& Matrix::operator=(double var)
 			this->Array[i][j]=var;
 	return *this;
 }
-double& Matrix::operator[](int index)
+double* Matrix::operator[](int index)
 {
-	return *Array[index];
+	return Array[index];
+}
+const double* Matrix::operator[](int index) const
+{
+	return Array[index];
 }
 
 
@@ -148,9 +152,6 @@ int main()
    // for (int i = 0; i < 2; i++)
    //     for (int j = 0; j < 2; j++) 
 			//b[i][j] = i+j;
-
-
-
     //b *= 2;
     //b = a = b + b; 
 

@@ -21,7 +21,8 @@ public:
 	Matrix operator- (double);
 	Matrix operator* (Matrix&);
 	Matrix operator* (double);
-	double& operator[](int);
+	double* operator[](int);
+	const double* operator[](int) const;
 	Matrix& operator= (Matrix&);
 	Matrix& operator= (double);
 
