@@ -1,15 +1,16 @@
 #include "Matrix.h"
 
 
-Matrix::Matrix(void): lengthArray(5),hightArray(5)
+
+
+Matrix::Matrix(void):lengthArray(5), hightArray(5)
 {
 	Array=new double* [lengthArray];
 	for(int i=0; i<lengthArray;i++)
 		Array[i]=new double [hightArray];	
 	cout<<"Работа конструктора\n";
 }
-
-Matrix::Matrix(int length,int hight): lengthArray(length), hightArray(hight)
+Matrix::Matrix(int length,int hight):lengthArray(length), hightArray(hight)
 {
 	if(length!=hight)
 	{
@@ -28,7 +29,7 @@ Matrix::~Matrix(void)
 	delete [] Array;
 	cout<<"Работа деструтора\n";
 }
-Matrix::Matrix(const Matrix &ob): lengthArray(ob.lengthArray),hightArray(ob.hightArray)
+Matrix::Matrix(const Matrix &ob):lengthArray(ob.lengthArray), hightArray(ob.hightArray)
 {
 	Array=new double* [this->lengthArray];
 	for(int i=0; i<this->lengthArray;i++)
@@ -41,7 +42,7 @@ Matrix::Matrix(const Matrix &ob): lengthArray(ob.lengthArray),hightArray(ob.high
 
 Matrix Matrix::operator+(const Matrix& ob1)
 {
-	if(this->lengthArray!=ob1.lengthArray)
+	if(this->lengthArray!=ob1.lengthArray||this->hightArray!=ob.hightArray)
 	{
 		// Error: defferent size of matrix;
 		exit(1);
@@ -62,7 +63,7 @@ Matrix Matrix::operator+(double var)
 }
 Matrix Matrix::operator-(const Matrix& ob1)
 {
-	if(this->lengthArray!=ob1.lengthArray)
+	if(this->lengthArray!=ob1.lengthArray||this->hightArray!=ob.hightArray)
 	{
 		// Error: defferent size of matrix;
 		exit(1);
@@ -103,13 +104,11 @@ Matrix& Matrix::operator=(const Matrix& ob)
 	if(this==&ob)
 		exit(1);
 
-	if(this->lengthArray!=ob.lengthArray)
+	if(this->lengthArray!=ob.lengthArray||this->hightArray!=ob.hightArray)
 	{
 		// Error: defferent size of matrix;
 		exit(1);
 	}
-	this->lengthArray=ob.lengthArray;
-	this->hightArray=ob.hightArray;
 	for(int i=0;i<this->lengthArray;i++)
 		for(int j=0;j<this->hightArray;j++)
 			this->Array[i][j]=ob.Array[i][j];
@@ -133,7 +132,7 @@ const double* Matrix::operator[](int index) const
 
 Matrix& Matrix::operator+=(const Matrix& obj)
 {
-	if(this->lengthArray!=obj.lengthArray)
+	if(this->lengthArray!=obj.lengthArray||this->hightArray!=obj.hightArray)
 	{
 		// Error: defferent size of matrix;
 		exit(1);
