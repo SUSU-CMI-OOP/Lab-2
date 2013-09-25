@@ -139,6 +139,34 @@ Matrix& Matrix::operator+=(const Matrix& obj)
 	}
 	for(int i=0;i<lengthArray;i++)
 		for(int j=0;j<hightArray;j++)
-			this->Array[i][j]=this->Array[i][j]+obj.Array[i][j];
+			this->Array[i][j]+=obj.Array[i][j];
+	return *this;
+}
+Matrix& Matrix::operator+=(double var)
+{
+	for(int i=0;i<lengthArray;i++)
+		for(int j=0;j<hightArray;j++)
+			this->Array[i][j]+=var;
+	return *this;
+}
+
+Matrix& Matrix::operator-=(const Matrix& obj)
+{
+	if(this->lengthArray!=obj.lengthArray||this->hightArray!=obj.hightArray)
+	{
+		// Error: defferent size of matrix;
+		exit(1);
+	}
+	for(int i=0;i<lengthArray;i++)
+		for(int j=0;j<hightArray;j++)
+			this->Array[i][j]-=obj.Array[i][j];
+	return *this;
+}
+
+Matrix& Matrix::operator-=(double var)
+{
+	for(int i=0;i<lengthArray;i++)
+		for(int j=0;j<hightArray;j++)
+			this->Array[i][j]-=var;
 	return *this;
 }
