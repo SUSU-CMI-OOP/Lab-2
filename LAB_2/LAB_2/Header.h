@@ -27,3 +27,4 @@ public:
 	Matrix& operator= (double);
 
 };
+
