@@ -170,3 +170,50 @@ Matrix& Matrix::operator-=(double var)
 			this->Array[i][j]-=var;
 	return *this;
 }
+
+Matrix& Matrix::operator*=(const Matrix& obj)
+{
+	for(int i=0;i<lengthArray;i++)
+		for(int j=0;j<hightArray;j++)
+		{
+			double temp=0;
+			for(int k=0;k<lengthArray;k++)
+				temp+=Array[i][k]*obj.Array[k][j];
+			this->Array[i][j]=temp;
+		}
+
+	return *this;
+}
+Matrix& Matrix::operator*=(double var)
+{
+	for(int i=0;i<lengthArray;i++)
+		for(int j=0;j<hightArray;j++)
+			this->Array[i][j]*=var;
+	return *this;
+}
+
+bool Matrix::operator==(const Matrix& obj)
+{
+	if(hightArray!=obj.hightArray||lengthArray!=obj.lengthArray)
+		return false;
+	for(int i=0;i<lengthArray;i++)
+		for(int j=0;j<hightArray;j++)
+			if(Array[i][j]!=obj.Array[i][j])
+				return false;
+	return true;
+}
+bool Matrix::operator!=(const Matrix& obj)
+{
+	return !(*this==obj);
+}
+
+ostream& operator<<(ostream& stream, const Matrix& obj)
+{
+	for(int i=0;i<obj.lengthArray;i++)
+	{
+		for(int j=0; j<obj.hightArray;j++)
+			stream<<obj.Array[i][j];
+		cout<<"\n";
+	}
+	return stream;
+}

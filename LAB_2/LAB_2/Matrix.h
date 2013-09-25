@@ -33,6 +33,6 @@ public:
 	Matrix& operator*= (double);
 	bool operator== (const Matrix&);
 	bool operator!= (const Matrix&);
-	ostream& operator<<(const Matrix&);
+	friend ostream& operator<<(ostream&,const Matrix&);
 };
 
