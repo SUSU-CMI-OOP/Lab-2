@@ -42,7 +42,7 @@ Matrix::Matrix(const Matrix &ob):lengthArray(ob.lengthArray), hightArray(ob.high
 
 Matrix Matrix::operator+(const Matrix& ob1)
 {
-	if(this->lengthArray!=ob1.lengthArray||this->hightArray!=ob.hightArray)
+	if(this->lengthArray!=ob1.lengthArray||this->hightArray!=ob1.hightArray)
 	{
 		// Error: defferent size of matrix;
 		exit(1);
@@ -63,7 +63,7 @@ Matrix Matrix::operator+(double var)
 }
 Matrix Matrix::operator-(const Matrix& ob1)
 {
-	if(this->lengthArray!=ob1.lengthArray||this->hightArray!=ob.hightArray)
+	if(this->lengthArray!=ob1.lengthArray||this->hightArray!=ob1.hightArray)
 	{
 		// Error: defferent size of matrix;
 		exit(1);

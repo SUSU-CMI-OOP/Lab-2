@@ -1,7 +1,8 @@
 #include <iostream>
 using namespace std;
+
 #pragma once
-#define MaxMatrixSize 100 
+ 
 
 class Matrix
 {
