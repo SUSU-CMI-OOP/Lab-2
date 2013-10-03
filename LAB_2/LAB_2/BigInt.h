@@ -45,8 +45,14 @@ public:
 	friend bool operator<=(const BigInt&, const BigInt&);
 	friend bool operator>=(const BigInt&, const BigInt&);
 
+	BigInt& operator=(const BigInt &integer);
+	BigInt& operator+=(const BigInt &integer);	
+	BigInt& operator-=(const BigInt &integer);	
+	BigInt& operator*=(const BigInt &integer);
 
-
-
-
+	friend ostream& operator<<(ostream&, const BigInt&);
+	BigInt& operator++ ();
+	BigInt& operator++ (int);
+	BigInt& operator-- ();
+	BigInt& operator-- (int);
 };
