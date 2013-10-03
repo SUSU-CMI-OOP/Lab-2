@@ -8,7 +8,7 @@ Matrix::Matrix(void):lengthArray(5), hightArray(5)
 	Array=new double* [lengthArray];
 	for(int i=0; i<lengthArray;i++)
 		Array[i]=new double [hightArray];	
-	cout<<"Работа конструктора\n";
+	//cout<<"Работа конструктора\n";
 }
 Matrix::Matrix(int length,int hight):lengthArray(length), hightArray(hight)
 {
@@ -20,14 +20,14 @@ Matrix::Matrix(int length,int hight):lengthArray(length), hightArray(hight)
 	Array=new double* [lengthArray];
 	for(int i=0; i<lengthArray;i++)
 		Array[i]=new double [hightArray];
-	cout<<"Работа конутрутора с параметрами\n";
+	//cout<<"Работа конутрутора с параметрами\n";
 }
 Matrix::~Matrix(void)
 {
 	for(int i=0; i<lengthArray;i++)
 		delete [] Array[i];
 	delete [] Array;
-	cout<<"Работа деструтора\n";
+	//cout<<"Работа деструтора\n";
 }
 Matrix::Matrix(const Matrix &ob):lengthArray(ob.lengthArray), hightArray(ob.hightArray)
 {
@@ -37,7 +37,7 @@ Matrix::Matrix(const Matrix &ob):lengthArray(ob.lengthArray), hightArray(ob.high
 	for(int i=0;i<this->lengthArray;i++)
 		for(int j=0;j<this->hightArray;j++)
 			this->Array[i][j]=ob.Array[i][j];
-	cout<<"Работа конструктора копий\n";
+	//cout<<"Работа конструктора копий\n";
 }
 
 Matrix Matrix::operator+(const Matrix& ob1)
@@ -216,4 +216,15 @@ ostream& operator<<(ostream& stream, const Matrix& obj)
 		cout<<"\n";
 	}
 	return stream;
+}
+
+void Matrix::show(void)
+{
+	cout<<"\n";
+	for(int i=0;i<hightArray;i++)
+	{
+		for(int j=0; j<lengthArray;j++)
+			cout<<Array[i][j]<<" ";
+		cout<<"\n";
+	}
 }

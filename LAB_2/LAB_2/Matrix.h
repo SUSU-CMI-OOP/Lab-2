@@ -3,7 +3,6 @@ using namespace std;
 
 #pragma once
  
-
 class Matrix
 {
 private:
@@ -35,5 +34,6 @@ public:
 	bool operator== (const Matrix&);
 	bool operator!= (const Matrix&);
 	friend ostream& operator<<(ostream&,const Matrix&);
+	void show();
 };
 
