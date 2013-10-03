@@ -14,8 +14,8 @@ class BigInt
 {
 private:
 	Sign sign;
-	int* number;
-	unsigned long int numberCount;  
+	int* numbers;
+	unsigned long int numbersCount;  
 public:
 	BigInt();
 	BigInt(char *);
