@@ -28,8 +28,8 @@ public:
 	const BigInt operator*(const BigInt&);
 
 	friend const BigInt operator+(const BigInt&, const BigInt&);
-	friend const BigInt operator-(BigInt&, const BigInt&);
-	friend const BigInt operator*(BigInt&, const BigInt&);
+	friend const BigInt operator-(const BigInt&, const BigInt&);
+	friend const BigInt operator*(const BigInt&, const BigInt&);
 
 	bool operator==(const BigInt&);
 	bool operator!=(const BigInt&);
@@ -38,12 +38,12 @@ public:
 	bool operator<=(const BigInt&);
 	bool operator>=(const BigInt&);
 
-	friend bool operator==(const BigInt&, const BigInt &);	
+	/*friend bool operator==(const BigInt&, const BigInt &);	
 	friend bool operator!=(const BigInt &, const BigInt &);	
 	friend bool operator<(const BigInt&, const BigInt&);
 	friend bool operator>(const BigInt&, const BigInt&);
 	friend bool operator<=(const BigInt&, const BigInt&);
-	friend bool operator>=(const BigInt&, const BigInt&);
+	friend bool operator>=(const BigInt&, const BigInt&);*/
 
 	BigInt& operator=(const BigInt &integer);
 	BigInt& operator+=(const BigInt &integer);	
@@ -51,8 +51,8 @@ public:
 	BigInt& operator*=(const BigInt &integer);
 
 	friend ostream& operator<<(ostream&, const BigInt&);
-	BigInt& operator++ ();
-	BigInt& operator++ (int);
+	BigInt& operator++ (); //Префиксная запись
+	BigInt& operator++ (int); //Постфиксная запись
 	BigInt& operator-- ();
 	BigInt& operator-- (int);
 };

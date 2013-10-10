@@ -1,13 +1,11 @@
 #include "BigInt.h"
 
 
-
 BigInt::BigInt(void)
 {
 	sign=zero;
 	numbers=NULL;
 }
-
 BigInt::BigInt(char* str)
 {
 	if(str != NULL)
@@ -26,8 +24,8 @@ BigInt::BigInt(char* str)
 				numbersCount = strlen(str) - 1;
 				numbers = new int [numbersCount];
 
-				for (int i = 0; i < numbersCount; i++)
-					numbers[i] = str[i+1] - '0';
+				for (int i = 1; i < numbersCount; i++)
+					numbers[i] = str[i];
 			}
 			else
 				if (str[0] >= '1' && str[0] <= '9')
@@ -37,13 +35,10 @@ BigInt::BigInt(char* str)
 					numbers = new int [numbersCount];
 
 					for (int i = 0; i < numbersCount; i++)
-						numbers[i] = str[i] - '0';
+						numbers[i] = str[i];
 				}
 	}
-
-
 }
-
 BigInt::BigInt(long int integer)
 {
 	if (integer == 0)
@@ -85,7 +80,6 @@ BigInt::BigInt(long int integer)
 		}
 	}
 }
-
 BigInt::BigInt(const BigInt &object) 
 {
 	sign=object.sign; 
@@ -94,4 +88,101 @@ BigInt::BigInt(const BigInt &object)
 
 	for (int i = 0; i < numbersCount; i++)
 		numbers[i] = object.numbers[i];
+}
+
+BigInt::~BigInt(void)
+{
+	delete [] numbers;
+}
+
+
+//const BigInt BigInt::operator+(const BigInt&obj)
+//{
+//	//BigInt temp;
+//	if(this->sign==obj.sign)
+//	{
+//		if(numbersCount>obj.numbersCount)
+//			{
+//				BigInt temp=*this;
+//			}
+//		else
+//			{
+//			
+//			}
+//	
+//	
+//	}
+//	
+//	
+//	/*
+//	if (size_a > size_b)
+//    length = size_a + 1;
+//else
+//    length = size_b + 1;
+// 
+//for (int ix = 0; ix < length; ix++)
+//{
+//    b[ix] += a[ix]; // суммируем последние разряды чисел
+//    b[ix + 1] += (b[ix] / 10); // если есть разряд для переноса, переносим его в следующий разряд
+//    b[ix] %= 10; // если есть разряд для переноса он отсекается
+//}
+// 
+//if (b[length - 1] == 0)
+//    length--;
+//	*/
+//}
+
+
+
+ostream& operator<<(ostream& outputStream, const BigInt &integer)
+{
+	if (integer.sign == negative)
+		outputStream << '-';
+
+	for (int i = 0; i < integer.numbersCount; i++)
+		outputStream << integer.numbers[i];
+
+	return outputStream;
+}
+
+bool BigInt::operator<(const BigInt& b)
+{
+	if (this->sign == negative && (b.sign == positive || b.sign == zero))
+		return true;
+	else
+		if((this->sign==zero||this->sign==positive)&&(b.sign == positive || b.sign == zero))
+		{
+			if (this->numbersCount < b.numbersCount)
+				return true;
+			else
+			{
+				if (this->numbersCount == b.numbersCount)			
+				{
+					for (int i = 0; i < this->numbersCount; i++)				
+						if (this->numbers[i] < b.numbers[i])			
+							return true;
+						else
+							return false;
+				}	
+				return false;
+			}
+		}
+		else
+			{return false;}		
+}
+bool BigInt::operator>(const BigInt& b)
+{ 
+	return b < *this;
+}
+bool BigInt::operator==(const BigInt& b)
+{ 
+	return !(*this < b || b > *this);
+}
+bool BigInt::operator>=(const BigInt& b)
+{ 
+	return (*this > b||*this==b);
+}
+bool BigInt::operator<=(const BigInt& b)
+{ 
+	return (b < *this||*this==b);
 }
