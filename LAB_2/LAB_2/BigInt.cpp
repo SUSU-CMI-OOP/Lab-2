@@ -94,8 +94,6 @@ BigInt::~BigInt(void)
 {
 	delete [] numbers;
 }
-
-
 ostream& operator<<(ostream& outputStream, const BigInt &integer)
 {
 	if (integer.sign == negative)
@@ -134,11 +132,11 @@ bool BigInt::operator<(const BigInt& b)
 }
 bool BigInt::operator>(const BigInt& b)
 { 
-	return b < *this;
+	return !(*this<b);
 }
 bool BigInt::operator==(const BigInt& b)
 { 
-	return !(*this < b || b > *this);
+	return !(*this < b || *this > b);
 }
 bool BigInt::operator>=(const BigInt& b)
 { 
@@ -146,43 +144,8 @@ bool BigInt::operator>=(const BigInt& b)
 }
 bool BigInt::operator<=(const BigInt& b)
 { 
-	return (b < *this||*this==b);
+	return (*this<b ||*this==b);
 }
-bool BigInt::operator<(const long int var)
-{
-	int varLen=0;
-	while(var/10!=0)
-	{
-		varLen++;
-	}
-	varLen++;
-	if (this->sign == negative && (var>=0))
-		return true;
-	else
-		if((this->sign==zero||this->sign==positive)&&(var>=0))
-		{
-			if (this->numbersCount < )
-				return true;
-			else
-			{
-				if (this->numbersCount == b.numbersCount)			
-				{
-					for (int i = 0; i < this->numbersCount; i++)				
-						if (this->numbers[i] < b.numbers[i])			
-							return true;
-						else
-							return false;
-				}	
-				return false;
-			}
-		}
-		else
-			{return false;}	
-
-}
-
-
-
 BigInt& BigInt::operator=(const BigInt &integer)
 {
 	if(this==&integer)
@@ -194,5 +157,20 @@ BigInt& BigInt::operator=(const BigInt &integer)
 
 	for (int i = 0; i < integer.numbersCount; i++)
 		this->numbers[i] = integer.numbers[i];
+	return *this;
+}
+BigInt& BigInt::operator+=(const BigInt &ob)
+{
+	*this=*this+ob;
+	return *this;
+}
+BigInt& BigInt::operator-=(const BigInt &ob)
+{
+	*this=*this-ob;
+	return *this;
+}
+BigInt& BigInt::operator*=(const BigInt &ob)
+{
+	*this=*this * ob;
 	return *this;
 }

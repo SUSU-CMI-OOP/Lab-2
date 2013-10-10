@@ -27,10 +27,6 @@ public:
 	const BigInt operator-(const BigInt&);
 	const BigInt operator*(const BigInt&);
 
-	const BigInt operator+(const long int);
-	const BigInt operator-(const long int);
-	const BigInt operator*(const long int);
-
 	bool operator==(const BigInt&); //+
 	bool operator!=(const BigInt&); //+
 	bool operator<(const BigInt&); //+
@@ -38,17 +34,11 @@ public:
 	bool operator<=(const BigInt&); //+
 	bool operator>=(const BigInt&); //+
 
-	bool operator==(const long int);	
-	bool operator!=(const long int);	
-	bool operator< (const long int);
-	bool operator> (const long int);
-	bool operator<=(const long int);
-	bool operator>=(const long int);
 
 	BigInt& operator=(const BigInt &integer); //+
-	BigInt& operator+=(const BigInt &integer);	
-	BigInt& operator-=(const BigInt &integer);	
-	BigInt& operator*=(const BigInt &integer);
+	BigInt& operator+=(const BigInt &integer);//+
+	BigInt& operator-=(const BigInt &integer);//+
+	BigInt& operator*=(const BigInt &integer); //+
 
 	friend ostream& operator<<(ostream&, const BigInt&); //+
 	
