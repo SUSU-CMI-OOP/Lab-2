@@ -22,7 +22,7 @@ public:
 	BigInt(long int); //+
 	BigInt(const BigInt&); //+
 	~BigInt(); //+
-
+	void Reverce();
 	const BigInt operator+(const BigInt&);
 	const BigInt operator-(const BigInt&);
 	const BigInt operator*(const BigInt&);
@@ -42,8 +42,8 @@ public:
 
 	friend ostream& operator<<(ostream&, const BigInt&); //+
 	
-	BigInt& operator++ (); //Префиксная запись
-	BigInt& operator++ (int); //Постфиксная запись
-	BigInt& operator-- ();
-	BigInt& operator-- (int);
+	BigInt& operator++ (); //Префиксная запись +
+	BigInt& operator++ (int); //Постфиксная запись +
+	BigInt& operator-- (); //+
+	BigInt& operator-- (int); //+
 };

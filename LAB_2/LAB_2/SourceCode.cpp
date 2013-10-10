@@ -22,6 +22,9 @@ int main(void)
 	ob1.show();
 	//ob_C=ob_A; //Generate exception: code 0x1; 
 
+
+
+	//Тесты для BigInt 
 	BigInt a;
     BigInt b("-1206");   
     BigInt c(1207);       
@@ -34,8 +37,8 @@ int main(void)
     else cout << "Something wrong\n";
 
     cout << b++ << endl
-         << c-1 << endl
-         << b+=7 << endl;
+         << c-1 << endl;
+   
 
 
 	system("pause");
