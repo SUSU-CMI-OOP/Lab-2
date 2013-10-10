@@ -96,44 +96,6 @@ BigInt::~BigInt(void)
 }
 
 
-//const BigInt BigInt::operator+(const BigInt&obj)
-//{
-//	//BigInt temp;
-//	if(this->sign==obj.sign)
-//	{
-//		if(numbersCount>obj.numbersCount)
-//			{
-//				BigInt temp=*this;
-//			}
-//		else
-//			{
-//			
-//			}
-//	
-//	
-//	}
-//	
-//	
-//	/*
-//	if (size_a > size_b)
-//    length = size_a + 1;
-//else
-//    length = size_b + 1;
-// 
-//for (int ix = 0; ix < length; ix++)
-//{
-//    b[ix] += a[ix]; // суммируем последние разряды чисел
-//    b[ix + 1] += (b[ix] / 10); // если есть разряд для переноса, переносим его в следующий разряд
-//    b[ix] %= 10; // если есть разряд для переноса он отсекается
-//}
-// 
-//if (b[length - 1] == 0)
-//    length--;
-//	*/
-//}
-
-
-
 ostream& operator<<(ostream& outputStream, const BigInt &integer)
 {
 	if (integer.sign == negative)
@@ -185,4 +147,52 @@ bool BigInt::operator>=(const BigInt& b)
 bool BigInt::operator<=(const BigInt& b)
 { 
 	return (b < *this||*this==b);
+}
+bool BigInt::operator<(const long int var)
+{
+	int varLen=0;
+	while(var/10!=0)
+	{
+		varLen++;
+	}
+	varLen++;
+	if (this->sign == negative && (var>=0))
+		return true;
+	else
+		if((this->sign==zero||this->sign==positive)&&(var>=0))
+		{
+			if (this->numbersCount < )
+				return true;
+			else
+			{
+				if (this->numbersCount == b.numbersCount)			
+				{
+					for (int i = 0; i < this->numbersCount; i++)				
+						if (this->numbers[i] < b.numbers[i])			
+							return true;
+						else
+							return false;
+				}	
+				return false;
+			}
+		}
+		else
+			{return false;}	
+
+}
+
+
+
+BigInt& BigInt::operator=(const BigInt &integer)
+{
+	if(this==&integer)
+	{
+		exit(0x1);
+	}
+	this->sign = integer.sign;
+	this->numbersCount = integer.numbersCount;
+
+	for (int i = 0; i < integer.numbersCount; i++)
+		this->numbers[i] = integer.numbers[i];
+	return *this;
 }

@@ -17,40 +17,41 @@ private:
 	int* numbers;
 	unsigned long int numbersCount;  
 public:
-	BigInt();
-	BigInt(char *);
-	BigInt(long int);
-	BigInt(const BigInt&);
-	~BigInt();
+	BigInt(); //+
+	BigInt(char *); //+
+	BigInt(long int); //+
+	BigInt(const BigInt&); //+
+	~BigInt(); //+
 
 	const BigInt operator+(const BigInt&);
 	const BigInt operator-(const BigInt&);
 	const BigInt operator*(const BigInt&);
 
-	friend const BigInt operator+(const BigInt&, const BigInt&);
-	friend const BigInt operator-(const BigInt&, const BigInt&);
-	friend const BigInt operator*(const BigInt&, const BigInt&);
+	const BigInt operator+(const long int);
+	const BigInt operator-(const long int);
+	const BigInt operator*(const long int);
 
-	bool operator==(const BigInt&);
-	bool operator!=(const BigInt&);
-	bool operator<(const BigInt&);
-	bool operator>(const BigInt&);
-	bool operator<=(const BigInt&);
-	bool operator>=(const BigInt&);
+	bool operator==(const BigInt&); //+
+	bool operator!=(const BigInt&); //+
+	bool operator<(const BigInt&); //+
+	bool operator>(const BigInt&); //+
+	bool operator<=(const BigInt&); //+
+	bool operator>=(const BigInt&); //+
 
-	/*friend bool operator==(const BigInt&, const BigInt &);	
-	friend bool operator!=(const BigInt &, const BigInt &);	
-	friend bool operator<(const BigInt&, const BigInt&);
-	friend bool operator>(const BigInt&, const BigInt&);
-	friend bool operator<=(const BigInt&, const BigInt&);
-	friend bool operator>=(const BigInt&, const BigInt&);*/
+	bool operator==(const long int);	
+	bool operator!=(const long int);	
+	bool operator< (const long int);
+	bool operator> (const long int);
+	bool operator<=(const long int);
+	bool operator>=(const long int);
 
-	BigInt& operator=(const BigInt &integer);
+	BigInt& operator=(const BigInt &integer); //+
 	BigInt& operator+=(const BigInt &integer);	
 	BigInt& operator-=(const BigInt &integer);	
 	BigInt& operator*=(const BigInt &integer);
 
-	friend ostream& operator<<(ostream&, const BigInt&);
+	friend ostream& operator<<(ostream&, const BigInt&); //+
+	
 	BigInt& operator++ (); //Префиксная запись
 	BigInt& operator++ (int); //Постфиксная запись
 	BigInt& operator-- ();

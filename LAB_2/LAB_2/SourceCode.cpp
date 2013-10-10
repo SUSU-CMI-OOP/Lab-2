@@ -22,6 +22,22 @@ int main(void)
 	ob1.show();
 	//ob_C=ob_A; //Generate exception: code 0x1; 
 
+	BigInt a;
+    BigInt b("-1206");   
+    BigInt c(1207);       
+
+    a = c;
+    if (a != c) cout << "Something wrong\n";
+    else cout << "As expected\n";
+
+    if (b < c) cout << "As expected\n";
+    else cout << "Something wrong\n";
+
+    cout << b++ << endl
+         << c-1 << endl
+         << b+=7 << endl;
+
+
 	system("pause");
     return 0;
 }
